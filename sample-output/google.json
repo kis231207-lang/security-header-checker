@@ -1,0 +1,57 @@
+{
+  "tool": {
+    "name": "security-header-checker",
+    "version": "1.0.0"
+  },
+  "target": "https://www.google.com",
+  "final_url": "https://www.google.com/",
+  "status_code": 200,
+  "redirects": 0,
+  "redirected": false,
+  "headers_checked": 6,
+  "summary": {
+    "pass": 1,
+    "warn": 0,
+    "fail": 5,
+    "skip": 0
+  },
+  "results": [
+    {
+      "header": "Strict-Transport-Security",
+      "status": "FAIL",
+      "value": null,
+      "message": "missing recommended security header."
+    },
+    {
+      "header": "Content-Security-Policy",
+      "status": "FAIL",
+      "value": null,
+      "message": "missing recommended security header. Only Content-Security-Policy-Report-Only was found, which reports violations but does not enforce a policy."
+    },
+    {
+      "header": "X-Content-Type-Options",
+      "status": "FAIL",
+      "value": null,
+      "message": "missing recommended security header."
+    },
+    {
+      "header": "X-Frame-Options",
+      "status": "PASS",
+      "value": "SAMEORIGIN",
+      "message": "Value is DENY or SAMEORIGIN."
+    },
+    {
+      "header": "Referrer-Policy",
+      "status": "FAIL",
+      "value": null,
+      "message": "missing recommended security header."
+    },
+    {
+      "header": "Permissions-Policy",
+      "status": "FAIL",
+      "value": null,
+      "message": "missing recommended security header."
+    }
+  ],
+  "notes": []
+}

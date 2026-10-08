@@ -1,0 +1,57 @@
+{
+  "tool": {
+    "name": "security-header-checker",
+    "version": "1.0.0"
+  },
+  "target": "http://127.0.0.1:8080/",
+  "final_url": "http://127.0.0.1:8080/",
+  "status_code": 200,
+  "redirects": 0,
+  "redirected": false,
+  "headers_checked": 6,
+  "summary": {
+    "pass": 2,
+    "warn": 2,
+    "fail": 1,
+    "skip": 1
+  },
+  "results": [
+    {
+      "header": "Strict-Transport-Security",
+      "status": "SKIP",
+      "value": null,
+      "message": "Not evaluated: the final URL is plain HTTP and HSTS is only honoured over HTTPS."
+    },
+    {
+      "header": "Content-Security-Policy",
+      "status": "WARN",
+      "value": "default-src 'self'; script-src 'self' 'unsafe-inline'; frame-ancestors 'self'",
+      "message": "Script sources allow 'unsafe-inline', which weakens the policy."
+    },
+    {
+      "header": "X-Content-Type-Options",
+      "status": "PASS",
+      "value": "nosniff",
+      "message": "Value is nosniff."
+    },
+    {
+      "header": "X-Frame-Options",
+      "status": "PASS",
+      "value": null,
+      "message": "Embedding is restricted by CSP frame-ancestors ('self'); X-Frame-Options is not required."
+    },
+    {
+      "header": "Referrer-Policy",
+      "status": "WARN",
+      "value": "unsafe-url",
+      "message": "Effective policy is unsafe-url, which is not in this tool's safer list."
+    },
+    {
+      "header": "Permissions-Policy",
+      "status": "FAIL",
+      "value": null,
+      "message": "missing recommended security header."
+    }
+  ],
+  "notes": []
+}
