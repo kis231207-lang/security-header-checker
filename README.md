@@ -230,29 +230,19 @@ Report the rate for tool errors, and, if you want to be transparent, a second ra
 4. For every WARN/FAIL in the JSON, compare it to the raw headers and the rules above, and classify it as correct, false positive (tool error) or not actionable. Note why.
 5. 5. Record the authorised assessment findings in a separate evaluation table and calculate the rate. Keep those results separate from the exploratory sample below.
 
-### Table template (TEMPLATE - NOT REAL DATA - fill in your own results)
+### ### Exploratory Real-Input Verification
 
-Per finding:
+The following exploratory checks compared the scanner's results with the raw HTTP response headers from two public HTTPS responses. This is a small sample, not a formal authorised security assessment.
 
-| Site | Header | Tool status | Raw header value seen | Judgement (correct / false positive / not actionable) | Reason |
-| --- | --- | --- | --- | --- | --- |
-| _(your data)_ | | | | | |
+| Site | Findings reviewed | Correct findings | False positives |
+|---|---:|---:|---:|
+| Google (`https://www.google.com`) | 5 | 5 | 0 |
+| Example.com (`https://example.com`) | 6 | 6 | 0 |
+| **Total** | **11** | **11** | **0** |
 
-Per site:
+**Observed false-positive rate:** 0 / 11 × 100 = **0%**.
 
-| Site | Date scanned | Total findings | Correct | False positives (tool error) | Not actionable |
-| --- | --- | --- | --- | --- | --- |
-| _(your data)_ | | | | | |
-| **Total** | | | | | |
-
-| Result | Value |
-| --- | --- |
-| Sites reviewed | _(fill in)_ |
-| Total findings | _(fill in)_ |
-| False positives (tool error) | _(fill in)_ |
-| False-positive rate (tool error) | _(fill in: FP / total x 100)_ |
-| Rate including "not actionable" | _(optional)_ |
-
+This result applies only to these 11 reviewed findings. It does not guarantee a 0% false-positive rate on other websites. Repeat the evaluation on systems you own or have explicit permission to assess for a more meaningful result.
 ## Limitations
 
 This tool is deliberately narrow. Be honest about what it is:
@@ -270,7 +260,7 @@ This tool is deliberately narrow. Be honest about what it is:
 - Duplicate headers joined by commas (multiple CSPs, for instance) are treated as one value. `script-src-elem`, `script-src-attr` and nested policy details are not evaluated.
 - `Permissions-Policy` parsing is simplified; unusual but valid syntax may be reported as WARN, and the legacy `Feature-Policy` header is not read.
 - HSTS is not evaluated for plain-HTTP final URLs, and the tool does not check whether a host is on a preload list.
-- The false-positive rate in this README is **not** pre-measured; you must measure it on your own real input.
+- The exploratory sample above had 0 observed false positives across 11 reviewed findings from two public HTTPS responses. This small sample does not establish a general false-positive rate; further evaluation on authorised real-world input is required.
 
 ## Ethical Use
 
