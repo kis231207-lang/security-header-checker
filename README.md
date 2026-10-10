@@ -269,21 +269,27 @@ Only use this tool against websites and systems you own or have explicit permiss
 ## Project Structure
 
 ```
+## Project Structure
+
+```
 security-header-checker/
 ├── scanner.py                 # the tool (CLI, rules, output)
-├── requirements.txt           # requests
+├── requirements.txt            # requests
 ├── README.md
-├── LICENSE                    # MIT
+├── LICENSE                     # MIT
 ├── .gitignore
 ├── tests/
-│   ├── test_scanner.py        # automated tests (local server + mocks)
-│   └── demo_server.py         # local demo server used to reproduce sample output
+│   ├── test_scanner.py         # automated tests (local server + mocks)
+│   └── demo_server.py          # local demo server used to reproduce sample output
 ├── sample-output/
-│   ├── sample.txt             # SAMPLE OUTPUT from the local demo server
-│   └── sample.json            # same, JSON
+│   ├── sample.txt              # sample output from the local demo server
+│   ├── sample.json             # same output in JSON
+│   ├── google.json             # exploratory public-response scan
+│   └── example.json            # exploratory public-response scan
 └── .github/
     └── workflows/
-        └── tests.yml          # runs the unit tests only
+        └── tests.yml           # runs the unit tests only
+```
 ```
 
 ## License
