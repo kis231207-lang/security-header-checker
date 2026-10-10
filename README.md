@@ -204,8 +204,7 @@ python scanner.py http://127.0.0.1:8080/
 
 ## Real-Input Evaluation
 
-AgenticX asks for a low false-positive rate **measured on real input**. This repository does **not** contain that measurement. You have to collect it yourself on sites you are authorised to inspect, using the procedure below. Do not fill in the table with estimates.
-
+AgenticX asks for a low false-positive rate measured on real input. This section records an exploratory verification sample from two public HTTPS responses whose raw headers were compared with the tool output. These checks are not a formal authorised assessment and are too small to establish a general false-positive rate. To produce a formal evaluation, repeat the procedure below on systems you own or have explicit permission to assess; do not treat this exploratory sample as a substitute.
 ### Definitions
 
 - **Finding** = one result with status `WARN` or `FAIL`. `PASS` and `SKIP` are not findings.
@@ -229,7 +228,7 @@ Report the rate for tool errors, and, if you want to be transparent, a second ra
    ```
 3. Independently capture the raw headers of the same final response, for example with `curl.exe -s -D - -o NUL -L https://YOUR-SITE` (Windows) or the browser DevTools Network tab. The last header block is the final response.
 4. For every WARN/FAIL in the JSON, compare it to the raw headers and the rules above, and classify it as correct, false positive (tool error) or not actionable. Note why.
-5. Fill in the tables below and compute the rate.
+5. 5. Record the authorised assessment findings in a separate evaluation table and calculate the rate. Keep those results separate from the exploratory sample below.
 
 ### Table template (TEMPLATE - NOT REAL DATA - fill in your own results)
 
